@@ -18,7 +18,7 @@ function Login() {
 
     try {
       // Backend ko request bhejna login ke liye
-      const response = await fetch("http://localhost:7474/users/login", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // JSON format bataya

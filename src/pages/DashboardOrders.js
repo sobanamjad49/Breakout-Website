@@ -21,7 +21,7 @@ function DashboardOrders() {
   // Backend se orders get karna
   const fetchOrders = () => {
     axios
-      .get("http://localhost:7474/orders/allorders")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/orders/allorders`)
       .then((res) => setOrders(res.data)) // response ko state mein daal diya
       .catch((err) => console.log(err)); // agar error aaye toh console mein
   };
@@ -34,7 +34,7 @@ function DashboardOrders() {
     setOrders(updatedOrders); // frontend pe update
 
     axios
-      .put(`http://localhost:7474/orders/update/${id}`, {
+      .put(`${process.env.REACT_APP_BACKEND_URL}/orders/update/${id}`, {
         orderStatus: newStatus,
       }) // backend update
       .then((res) => console.log("Order status updated:", res.data))
@@ -49,7 +49,7 @@ function DashboardOrders() {
     setOrders(updatedOrders);
 
     axios
-      .put(`http://localhost:7474/orders/update/${id}`, {
+      .put(`${process.env.REACT_APP_BACKEND_URL}/orders/update/${id}`, {
         paymentStatus: newPaymentStatus,
       }) // payment status backend pe update
       .then((res) => console.log("Payment status updated:", res.data))
@@ -60,7 +60,7 @@ function DashboardOrders() {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this order?")) {
       axios
-        .delete(`http://localhost:7474/orders/delete/${id}`)
+        .delete(`${process.env.REACT_APP_BACKEND_URL}/orders/delete/${id}`)
         .then(() => {
           // Order remove karna state se
           setOrders((prev) => prev.filter((order) => order._id !== id));

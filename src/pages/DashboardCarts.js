@@ -15,7 +15,7 @@ function DashboardCarts() {
   // Saare carts ko backend se laane ka function
   const fetchCarts = async () => {
     try {
-      const res = await axios.get("http://localhost:7474/cart/all");
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/cart/all`);
       setCarts(res.data); // response data ko carts mein set kar do
     } catch (error) {
       console.error("Error fetching carts:", error);
@@ -28,7 +28,7 @@ function DashboardCarts() {
       return; // agar confirm nahi kiya to kuch na karo
 
     try {
-      await axios.delete(`http://localhost:7474/cart/delete/${cartId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/cart/delete/${cartId}`);
       // delete ke baad cart list update karo
       setCarts(carts.filter((cart) => cart._id !== cartId));
     } catch (error) {

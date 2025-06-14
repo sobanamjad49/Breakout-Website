@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:7474/cart/${userId}`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:7474/cart/add", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +103,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:7474/cart/delete/${cartId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/cart/delete/${cartId}`,
         {
           method: "DELETE",
           headers: {
@@ -132,7 +132,7 @@ export const CartProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await fetch("http://localhost:7474/cart/update", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -167,7 +167,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:7474/cart/clear/${userId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/cart/clear/${userId}`,
         {
           method: "DELETE",
           headers: {

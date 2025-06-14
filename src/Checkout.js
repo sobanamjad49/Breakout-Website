@@ -73,7 +73,7 @@ function Checkout() {
     try {
       setLoading(true); // Loading start
       // Backend API ko order data bhejna (replace URL apne backend ke hisaab se)
-      const res = await axios.post("http://localhost:7474/orders/New", orderData);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/orders/New`, orderData);
 
       setMessage("Order placed successfully!"); // Success message show karo
       console.log(res.data);

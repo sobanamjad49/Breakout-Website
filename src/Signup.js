@@ -24,7 +24,7 @@ function Signup() {
 
     try {
       // API request to register new user
-      const response = await fetch("http://localhost:7474/users/register", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/register`, {
         method: "POST", // POST method for creating user
         headers: {
           "Content-Type": "application/json", // Telling server we're sending JSON data

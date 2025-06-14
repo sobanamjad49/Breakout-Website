@@ -19,7 +19,7 @@ const AdminLogin = () => {
 
     try {
       // Backend par login request bhejna
-      const res = await axios.post("http://localhost:7474/auth/login", form);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, form);
 
       // Response se user aur token nikaalna
       const { user, token } = res.data;

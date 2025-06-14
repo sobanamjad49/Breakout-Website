@@ -13,7 +13,7 @@ const DashboardUsers = () => {
       try {
         setLoading(true); // Loading on
         const token = localStorage.getItem("token"); // Token auth ke liye
-        const res = await axios.get("http://localhost:7474/users/getusers", {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/getusers`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -38,7 +38,7 @@ const DashboardUsers = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:7474/users/deleteusers/${userId}`, {
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/deleteusers/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

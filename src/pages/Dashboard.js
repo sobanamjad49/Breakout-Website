@@ -30,9 +30,9 @@ const Dashboard = () => {
   // Backend se data fetch karne wala function
   const fetchDashboardData = async () => {
     try {
-      const usersRes = await axios.get("http://localhost:7474/users/getusers");
-      const productsRes = await axios.get("http://localhost:7474/products/getproduct");
-      const ordersRes = await axios.get("http://localhost:7474/orders/allorders");
+      const usersRes = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/getusers`);
+      const productsRes = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/getproduct`);
+      const ordersRes = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/orders/allorders`);
 
       const users = usersRes.data;
       const products = productsRes.data;

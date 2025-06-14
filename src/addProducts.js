@@ -5,7 +5,7 @@ const axios = require("axios");
 const products = require("./products");
 
 // 🛒 Backend API endpoint jahan products add honge
-const API_URL = "http://localhost:7474/products/addproduct";
+const API_URL = `${process.env.REACT_APP_BACKEND_URL}/products/addproduct`;
 
 // 🔁 Saare products ko backend mein add karne ka async function
 async function addProducts() {

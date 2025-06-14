@@ -2,7 +2,7 @@
 const fetchProducts = async () => {
   try {
     // Server se request bhej rahe hain — URL local server ka hai
-    const response = await fetch("http://localhost:7474/products/getproduct");
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/products/getproduct`);
 
     // Agar response ok (200 status) nahi hai to error throw karo
     if (!response.ok) {
