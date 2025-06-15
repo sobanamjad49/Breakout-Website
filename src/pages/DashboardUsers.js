@@ -89,7 +89,7 @@ const DashboardUsers = () => {
                 <td className="py-2 px-4 border-b">
                   {user.firstName && user.lastName
                     ? `${user.firstName} ${user.lastName}` // Full name banana
-                    : user.name || "N/A"}                 // Agar name field alag ho
+                    : user.name || "N/A"}             
                 </td>
                 <td className="py-2 px-4 border-b">{user.email}</td>
                 <td className="py-2 px-4 border-b">{user.role || "User"}</td>
