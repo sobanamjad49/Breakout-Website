@@ -212,6 +212,15 @@ function ProductDetails() {
 
                   {/* Cart items loop */}
                   <div className="p-4 text-sm overflow-y-auto max-h-[65vh]">
+                       <div className="flex justify-between items-center px-4 py-3 border-b mb-1">
+                    <h2 className="font-bold text-lg">Cart</h2>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="text-gray-500 hover:text-black text-xl"
+                    >
+                      &times;
+                    </button>
+                  </div>
                     {cart?.length > 0 ? (
                       cart.map((item) => (
                         <div
